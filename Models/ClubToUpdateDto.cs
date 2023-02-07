@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Clubs.Models
 {
-    public class ClubToCreateDto
+    public class ClubToUpdateDto
     {
         [Required(ErrorMessage = "Agrega un nombre")]
         [MaxLength(20)]
