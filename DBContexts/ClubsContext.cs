@@ -45,13 +45,14 @@ namespace Clubs.DBContexts
                     Id = 1,
                     Nationality = "Argentina",
                     Position = Position.Attacker,
-
+                    ClubId = clubs[0].Id
                 },
                 new Player("Cristiano Ronaldo")
                 {
                     Id = 2,
                     Nationality = "Portugal",
                     Position = Position.Attacker,
+                    ClubId = clubs[1].Id
 
                 },
                 new Player("Luka Modric")
@@ -59,6 +60,7 @@ namespace Clubs.DBContexts
                     Id = 3,
                     Nationality = "Croacia",
                     Position = Position.Midfielder,
+                    ClubId = clubs[2].Id
                 });
 
             base.OnModelCreating(modelBuilder);
