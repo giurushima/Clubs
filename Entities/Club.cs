@@ -23,6 +23,5 @@ namespace Clubs.Entities
         public League League { get; set; }
 
         public ICollection<Player> Players { get; set; }
-        public object ClubId { get; internal set; }
     }
 }
