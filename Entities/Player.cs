@@ -7,7 +7,7 @@ namespace Clubs.Entities
 {
     public class Player
     {
-        [Key]
+        [Key]//test
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
