@@ -2,7 +2,7 @@
 
 namespace Clubs.Services
 {
-    public interface IInfoClubesRepository
+    public interface IInfoClubsRepository
     {
         public IEnumerable<Club> GetClubes();
         public Club? GetClub(int idClub, bool incluirPuntosDeInteres);

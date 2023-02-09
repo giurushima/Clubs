@@ -62,5 +62,15 @@ namespace Clubs.Services
         {
             return _context.Clubs.Any(c => c.Id == idClub && c.Name == NameClub);
         }
+
+        public IEnumerable<Club> GetClubes()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Player> GetPuntosDeInteresDeClub(int idClub)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
