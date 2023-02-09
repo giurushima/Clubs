@@ -30,7 +30,5 @@ namespace Clubs.Entities
         [ForeignKey("ClubId")]
         public Club Club { get; set; }
         public int ClubId { get; set; }
-
-
     }
 }
