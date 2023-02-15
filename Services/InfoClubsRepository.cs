@@ -54,6 +54,16 @@ namespace Clubs.Services
             _context.Players.Remove(Player);
         }
 
+        public void AgregarClub(Club club)
+        {
+            _context.Clubs.Add(club);
+        }
+
+        public void EliminarClub(Club club)
+        {
+            _context.Clubs.Remove(club);
+        }
+
         public bool NameClubConcuerdaConIdClub(string? NameClub, int idClub)
         {
             return _context.Clubs.Any(c => c.Id == idClub && c.Name == NameClub);

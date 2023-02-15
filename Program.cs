@@ -1,3 +1,5 @@
+using Clubs;
+using Clubs.Services;
 using Clubs.DBContexts;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +14,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<ClubsContext>(dbContextOptions => dbContextOptions.UseSqlite(
     builder.Configuration["ConnectionStrings:ClubsDBConnectionString"]));
+
+builder.Services.AddScoped<IInfoClubsRepository, InfoClubsRepository>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
