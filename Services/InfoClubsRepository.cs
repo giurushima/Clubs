@@ -12,13 +12,9 @@ namespace Clubs.Services
         {
             _context = context;
         }
-        public Club? GetClub(int idClub, bool incluirPlayers)
+        public Club? GetClub(int idClub)
         {
-            if (incluirPlayers)
-                return _context.Clubs.Include(c => c.Players)
-                    .Where(c => c.Id == idClub).FirstOrDefault();
-
-            return _context.Clubs.Where(c => c.Id == idClub).FirstOrDefault();
+            return _context.Clubs.Include(c => c.Players).Where(d => d.Id == idClub).FirstOrDefault();
         }
 
         public IEnumerable<Club> GetClubs()
@@ -26,12 +22,12 @@ namespace Clubs.Services
             return _context.Clubs.OrderBy(x => x.Name).ToList();
         }
 
-        public Player? GetPlayerDeClub(int idClub, int idPlayer)
+        public Player? GetPlayer(int idClub, int idPlayer)
         {
             return _context.Players.Where(p => p.ClubId == idClub && p.Id == idPlayer).FirstOrDefault();
         }
 
-        public IEnumerable<Player> GetPlayersDeClub(int idClub)
+        public IEnumerable<Player> GetPlayers(int idClub)
         {
             return _context.Players.Where(p => p.ClubId == idClub).ToList();
         }
@@ -43,7 +39,7 @@ namespace Clubs.Services
 
         public void AgregarPlayerAClub(int idClub, Player Player)
         {
-            var Club = GetClub(idClub, false);
+            var Club = GetClub(idClub);
             if (Club != null)
                 Club.Players.Add(Player);
         }
@@ -61,11 +57,6 @@ namespace Clubs.Services
         public bool NameClubConcuerdaConIdClub(string? NameClub, int idClub)
         {
             return _context.Clubs.Any(c => c.Id == idClub && c.Name == NameClub);
-        }
-
-        public IEnumerable<Club> GetClubes()
-        {
-            throw new NotImplementedException();
         }
     }
 }
