@@ -67,10 +67,5 @@ namespace Clubs.Services
         {
             throw new NotImplementedException();
         }
-
-        public IEnumerable<Player> GetPuntosDeInteresDeClub(int idClub)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
