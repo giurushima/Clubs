@@ -66,7 +66,38 @@ namespace Clubs.Controllers
 
         }
 
+        [HttpPut("{idPlayer}")]
+        public ActionResult ActualizarPlayer(int idClub, int idPlayer, PlayerToUpdateDto player)
+        {
+            if (!_repository.ExisteClub(idClub))
+                return NotFound();
 
+            var playerEnLaBase = _repository.GetPlayer(idClub, idPlayer);
+            if (playerEnLaBase == null)
+                return NotFound();
+
+            _mapper.Map(player, playerEnLaBase); // Ojo que este es distinto.
+
+            _repository.GuardarCambios();
+
+            return NoContent();
+        }
+
+        [HttpDelete("{idPlayer}")]
+        public ActionResult EliminarPlayer(int idClub, int idPlayer)
+        {
+            if (!_repository.ExisteClub(idClub))
+                return NotFound();
+
+            var playerAEliminar = _repository.GetPlayer(idClub, idPlayer);
+            if (playerAEliminar is null)
+                return NotFound();
+
+            _repository.EliminarPlayer(playerAEliminar);
+            _repository.GuardarCambios();
+
+            return NoContent();
+        }
     }
 
 }

@@ -5,6 +5,6 @@
         MLS,
         PremierLeague,
         LaLiga,
-        Ligue1
+        Ligue1,
     }
 }

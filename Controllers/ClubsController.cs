@@ -41,11 +41,11 @@ namespace Clubs.Controllers
             return Ok(_mapper.Map<ClubDto>(club));   
         }
         [HttpPost(Name = "GetClubs")]
-        public ActionResult<ClubDto> AgregarClub(ClubToCreateDto ClubToCreate)
+        public ActionResult<ClubDto> AgregarClub(int idPlayer,ClubToCreateDto ClubToCreate)
         {
-            Club clubNew = _mapper.Map<Club>(ClubToCreate);
+            Club club = _mapper.Map<Club>(ClubToCreate);
 
-            _infoClubsRepository.AgregarClub(clubNew);
+            _infoClubsRepository.AgregarClub(club);
 
             _infoClubsRepository.GuardarCambios();
 
@@ -54,10 +54,11 @@ namespace Clubs.Controllers
                         "getclubs",
                         new
                         {
-                            idClub = clubNew.Id
+                            idPlayer,
+                            idClub = club.Id
 
                         },
-                        _mapper.Map<ClubDto>(clubNew));
+                        _mapper.Map<ClubDto>(club));
         }
 
     }
