@@ -10,7 +10,6 @@ namespace Clubs.Models
         public string FullName { get; set; } = string.Empty;
         [MaxLength(50)]
         public string Nationality { get; set; }
-        [MaxLength(50)]
         public Position Position { get; set; }
     }
 }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Clubs.Migrations
 {
     [DbContext(typeof(ClubsContext))]
-    [Migration("20230208223314_first")]
-    partial class first
+    [Migration("20230224222947_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,7 +26,6 @@ namespace Clubs.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("League")
-                        .HasMaxLength(30)
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
@@ -78,7 +77,6 @@ namespace Clubs.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Position")
-                        .HasMaxLength(50)
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");

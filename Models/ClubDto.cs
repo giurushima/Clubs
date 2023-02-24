@@ -10,7 +10,7 @@ namespace Clubs.Models
         public IList<PlayerDto> Players { get; set; } = new List<PlayerDto>();
         public int NumberOfPlayers
         { 
-        get { return Players.Count; }
+            get { return Players.Count; }
         }
     }
 }

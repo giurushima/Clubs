@@ -19,7 +19,7 @@ namespace Clubs.Services
 
         public IEnumerable<Club> GetClubs()
         {
-            return _context.Clubs.OrderBy(x => x.Name).ToList();
+            return _context.Clubs.Include(c => c.Players).OrderBy(x => x.Name).ToList();
         }
 
         public Player? GetPlayer(int idClub, int idPlayer)
@@ -40,6 +40,7 @@ namespace Clubs.Services
         public void AgregarPlayerAClub(int idClub, Player Player)
         {
             var Club = GetClub(idClub);
+
             if (Club != null)
                 Club.Players.Add(Player);
         }

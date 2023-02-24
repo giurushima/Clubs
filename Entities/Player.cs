@@ -24,7 +24,6 @@ namespace Clubs.Entities
         public string? Nationality { get; set; }
 
         [Required]
-        [MaxLength(50)]
         public Position Position { get; set; }
 
         [ForeignKey("ClubId")]

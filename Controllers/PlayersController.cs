@@ -66,6 +66,34 @@ namespace Clubs.Controllers
 
         }
 
+        [HttpPost]
+        public ActionResult<PlayerDto> CrearPlayer(int idClub, PlayerToCreateDto player)
+        {
+            if (!_repository.ExisteClub(idClub))
+            {
+                return NotFound();
+            }
+
+            
+
+            var nuevoPlayer = _mapper.Map<Entities.Player>(player);
+
+            _repository.AgregarPlayerAClub(idClub, nuevoPlayer);
+            _repository.GuardarCambios();
+
+            var playerParaDevolver = _mapper.Map<PlayerDto>(nuevoPlayer);
+
+            return CreatedAtRoute(//CreatedAtRoute es para q devuelva 201, el 200 de post.
+                "GetPlayers", //El primer parámetro es el Name del endpoint que hace el Get
+                new //El segundo los parametros q necesita ese endpoint
+                {
+                    idClub,
+                    idPlayer = playerParaDevolver.Id
+                },
+                playerParaDevolver);//El tercero es el objeto creado. 
+        }
+
+
         [HttpPut("{idPlayer}")]
         public ActionResult ActualizarPlayer(int idClub, int idPlayer, PlayerToUpdateDto player)
         {

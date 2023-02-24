@@ -23,7 +23,6 @@ namespace Clubs.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("League")
-                        .HasMaxLength(30)
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
@@ -75,7 +74,6 @@ namespace Clubs.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Position")
-                        .HasMaxLength(50)
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");

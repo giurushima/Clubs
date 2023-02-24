@@ -2,7 +2,7 @@
 
 namespace Clubs.Models
 {
-    public class PlayerWithOutClubsDto
+    public class ClubWithOutPlayersDto
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;

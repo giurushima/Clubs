@@ -7,7 +7,7 @@
 namespace Clubs.Migrations
 {
     /// <inheritdoc />
-    public partial class first : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,7 +19,7 @@ namespace Clubs.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", maxLength: 20, nullable: false),
-                    League = table.Column<int>(type: "INTEGER", maxLength: 30, nullable: false)
+                    League = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -34,7 +34,7 @@ namespace Clubs.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     FullName = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
                     Nationality = table.Column<string>(type: "TEXT", maxLength: 50, nullable: true),
-                    Position = table.Column<int>(type: "INTEGER", maxLength: 50, nullable: false),
+                    Position = table.Column<int>(type: "INTEGER", nullable: false),
                     ClubId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>

@@ -8,7 +8,7 @@ namespace Clubs.AutoMapperProfiles
         public ClubProfile()
         {
             //acá mapeo los Dto de Club (Club sin movie y Club, se llama a Models, no a models como en la diapositiva)
-            CreateMap<Entities.Club, Models.PlayerWithOutClubsDto>();//esto dice te puedo pedir que mapees desde Club
+            CreateMap<Entities.Club, Models.ClubWithOutPlayersDto>();//esto dice te puedo pedir que mapees desde Club
                                                                      //hasta ClubSinMovieDto
             CreateMap<Entities.Club, Models.ClubDto>();
 

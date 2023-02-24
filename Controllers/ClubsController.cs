@@ -24,7 +24,9 @@ namespace Clubs.Controllers
         public JsonResult GetClubs()
         {
             
-            return new JsonResult(_infoClubsRepository.GetClubs());
+            var clubs = _infoClubsRepository.GetClubs();
+
+            return new JsonResult(_mapper.Map<ICollection<ClubDto>>(clubs));
 
             //buscar Clubes con la instancia y pasarlo como parámetro (esto se hacía antes de la inyecíón de dependencia)
 
@@ -51,7 +53,7 @@ namespace Clubs.Controllers
 
 
             return CreatedAtRoute(
-                        "getclubs",
+                        "GetClubs",
                         new
                         {
                             idPlayer,
