@@ -8,10 +8,15 @@ namespace Clubs.DBContexts
     {
         public DbSet<Club> Clubs { get; set; }
         public DbSet<Player> Players { get; set; }
+        public DbSet<User> Users { get; set; }
 
         public ClubsContext(DbContextOptions<ClubsContext> options) : base(options) //Acá estamos llamando al constructor de DbContext que es el que acepta las opciones
         {
 
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.EnableSensitiveDataLogging();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -62,6 +67,42 @@ namespace Clubs.DBContexts
                     Position = Position.Midfielder,
                     ClubId = clubs[2].Id
                 });
+
+            var users = new User[3] {
+                new User()
+                {
+                    Id = 1,
+                    Name = "Felipe",
+                    LastName = "Regis",
+                    Password = "feli99",
+                    UserName = "feliregis",
+                    Role = UserTypes.administrator
+
+                },
+                 new User()
+                {
+                    Id = 2,
+                    Name = "Mateo",
+                    LastName = "Garcia",
+                    Password = "mateo99",
+                    UserName = "mategarcia",
+                    Role = UserTypes.administrator
+
+                },
+                  new User()
+                {
+                    Id = 3,
+                    Name = "Gabriel",
+                    LastName = "Urushima",
+                    Password = "gabi99",
+                    UserName = "gabiurushima",
+                    Role = UserTypes.administrator
+
+                }
+
+            };
+
+            modelBuilder.Entity<User>().HasData(users);
 
             base.OnModelCreating(modelBuilder);
         }
